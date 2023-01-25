@@ -1,0 +1,4 @@
+#ignoriere die Kompilate vom C#-Programm
+.vs
+bin
+obj
