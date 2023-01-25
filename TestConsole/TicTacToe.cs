@@ -16,13 +16,13 @@ namespace TestConsole
             Console.WriteLine("WELCOME TO MY TIC TAC TOE DIMENSION GAME :)");
             Console.ResetColor();
             Console.WriteLine();
-            Console.WriteLine("Choose a dimension between 2 and 5:");
+            Console.WriteLine("Choose a dimension between 3 and 6:");
 
             while (true)
             {
                 var playerInput = ParsingHelper.ParsingNumber();
 
-                if (playerInput < 2 || playerInput > 5)
+                if (playerInput < 3 || playerInput > 6)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("This dimension does not exist.");
@@ -54,18 +54,19 @@ namespace TestConsole
                     Board.SwitchPlayer();
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine($"{Board.ActualPlayer} win!");
+                    Console.ResetColor();
                     break;
                 }
                 if (DrawCheck())
                 {
                     Console.ForegroundColor = ConsoleColor.DarkMagenta;
                     Console.WriteLine($"It's a draw...");
+                    Console.ResetColor();
                     break;
                 }
             }
 
             Console.WriteLine();
-            Console.ResetColor();
             Console.WriteLine("1: The same dimension.\n" +
                               "2: Choose a new dimension.\n" +
                               "Any other key: Exit game.");
@@ -83,6 +84,7 @@ namespace TestConsole
 
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Thanks for playing :)");
+            Console.ResetColor();
 
             Environment.Exit(0);
         }
@@ -113,7 +115,7 @@ namespace TestConsole
                 }
 
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("Field is already taken.");
+                Console.WriteLine("This field is already taken.");
                 Console.ResetColor();
             }
 
