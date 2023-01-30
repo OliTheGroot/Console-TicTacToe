@@ -77,7 +77,8 @@ namespace TestConsole
                 Board = new GameBoard(Board.Dimension);
                 Run();
             }
-            else if (inputUser == "2")
+
+            if (inputUser == "2")
             {
                 Start();
             }
@@ -140,7 +141,7 @@ namespace TestConsole
 
         public bool WinCheck()
         {
-            if (CheckRows() || CheckColumns() || CheckDiagonal() || CheckAntiDiagonal())
+            if (CheckRows() || CheckColumns() || CheckDiagonal() || CheckAntiDiagonal()) 
             {
                 return true;
             }
@@ -197,7 +198,6 @@ namespace TestConsole
         public bool CheckDiagonal()
         {
             int countForWinDia = 0;
-
             for (int i = 0; i < Board.Blocks.GetLength(1); i++)
             {
                 if (Board.Blocks[i, i].Player != Board.ActualPlayer && Board.Blocks[i, i].Player != Player.None)
@@ -222,7 +222,10 @@ namespace TestConsole
             {
                 for (int j = 0; j < Board.Blocks.GetLength(0); j++)
                 {
-                    if (i + j == Board.Dimension -1 && Board.Blocks[i, j].Player != Board.ActualPlayer && Board.Blocks[i, j].Player != Player.None)
+                    Block currentBlock = Board.Blocks[i, j];
+                    if (i + j == Board.Dimension -1 
+                        && currentBlock.Player != Board.ActualPlayer 
+                        && Board.Blocks[i, j].Player != Player.None)
                     {
                         countForWinAntiDia++;
 
